@@ -7,20 +7,32 @@ import { FooterService } from '../services/footer.service';
 import { NotFoundComponent } from './notfound/not-found.component';
 import { ExternalUrlDirective } from './external-url.directive';
 import { FunPipePipe } from './fun-pipe.pipe';
-
+import { ConfirmDailogComponent } from './confirm-dailog/confirm-dailog.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [FooterComponent, HeaderComponent, NotFoundComponent, ExternalUrlDirective, FunPipePipe],
+  declarations: [
+    FooterComponent,
+    HeaderComponent,
+    NotFoundComponent,
+    ConfirmDailogComponent,
+    ExternalUrlDirective,
+    FunPipePipe,
+  ],
   exports: [
-    HeaderComponent,FooterComponent, NotFoundComponent, ExternalUrlDirective, FunPipePipe
-  ]
+    HeaderComponent,
+    FooterComponent,
+    ConfirmDailogComponent,
+    NotFoundComponent,
+    ExternalUrlDirective,
+    FunPipePipe,
+  ],
 })
-export class SharedModule { 
+export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [ FooterService, ExternalUrlDirective]
+      providers: [FooterService, ExternalUrlDirective],
     };
   }
 }

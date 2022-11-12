@@ -1,0 +1,20 @@
+<div id="myModal" class="modal" #myModal>
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" (click)="Cancel()">&times;</span>
+      <h2>Confirmation Dialog</h2>
+    </div>
+    <div class="modal-body">
+      <p>{{ message }}</p>
+    </div>
+    <div class="modal-footer">
+      <span>
+        <button (click)="Confirm()">Confirm</button>
+      </span>
+      <span>
+        <button (click)="Cancel()">cancel</button>
+      </span>
+    </div>
+  </div>
+</div>
