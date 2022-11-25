@@ -19,8 +19,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.height = this.fhs.getHeight();
-    this.child.nativeElement.style.display = 'block';
-    // this.loadConfirm();
   }
   changeHeight(): void {
     this.fhs.setHeight(Math.floor(Math.random() * 31) + 50);

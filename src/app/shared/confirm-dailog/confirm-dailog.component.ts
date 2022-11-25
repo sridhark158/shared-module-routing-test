@@ -17,8 +17,4 @@ export class ConfirmDailogComponent implements OnInit {
       console.log(data);
     });
   }
-  Cancel() {
-    this.child.nativeElement.style.display = 'none';
-  }
-  Confirm() {}
 }
