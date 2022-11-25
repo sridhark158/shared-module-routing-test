@@ -26,6 +26,9 @@ export class HomeComponent implements OnInit {
   loadConfirm() {
     const dialogConfig: DialogConfig = {
       title: 'Your in Home ',
+      close: () => {
+        this.cs.closeDialog();
+      },
       message: 'Are You sure Your in Home',
       visible: true,
       buttonConfigList: [
