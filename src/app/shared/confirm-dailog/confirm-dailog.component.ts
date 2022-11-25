@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ConfirmationServiceService } from './confirmation-service.service';
+import { DialogConfig } from './dialog-config';
 
 @Component({
   selector: 'confirm-dailog',
@@ -6,10 +8,15 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./confirm-dailog.component.css'],
 })
 export class ConfirmDailogComponent implements OnInit {
-  constructor() {}
+  constructor(private cs: ConfirmationServiceService) {}
   @ViewChild('myModal') child: ElementRef;
-  message = 'Are you Sure..?';
-  ngOnInit() {}
+  dialogConfig: DialogConfig;
+  ngOnInit() {
+    this.cs.subscribeToDialogConfigChange().subscribe((data: DialogConfig) => {
+      this.dialogConfig = data;
+      console.log(data);
+    });
+  }
   Cancel() {
     this.child.nativeElement.style.display = 'none';
   }

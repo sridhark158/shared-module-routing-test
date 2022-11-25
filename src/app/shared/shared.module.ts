@@ -8,6 +8,7 @@ import { NotFoundComponent } from './notfound/not-found.component';
 import { ExternalUrlDirective } from './external-url.directive';
 import { FunPipePipe } from './fun-pipe.pipe';
 import { ConfirmDailogComponent } from './confirm-dailog/confirm-dailog.component';
+import { ConfirmationServiceService } from './confirm-dailog/confirmation-service.service';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
@@ -32,7 +33,11 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [FooterService, ExternalUrlDirective],
+      providers: [
+        FooterService,
+        ExternalUrlDirective,
+        ConfirmationServiceService,
+      ],
     };
   }
 }

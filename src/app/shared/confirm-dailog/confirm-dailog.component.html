@@ -1,19 +1,23 @@
-<div id="myModal" class="modal" #myModal>
+<div
+  id="myModal"
+  class="modal"
+  #myModal
+  *ngIf="dialogConfig && dialogConfig.visible"
+>
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
       <span class="close" (click)="Cancel()">&times;</span>
-      <h2>Confirmation Dialog</h2>
+      <h2>{{ dialogConfig.title }}</h2>
     </div>
     <div class="modal-body">
-      <p>{{ message }}</p>
+      <p>{{ dialogConfig.message }}</p>
     </div>
     <div class="modal-footer">
-      <span>
-        <button class="confirm" (click)="Confirm()">Confirm</button>
-      </span>
-      <span>
-        <button class="cancel" (click)="Cancel()">cancel</button>
+      <span *ngFor="let bt of dialogConfig.buttonConfigList">
+        <button class="confirm" (click)="bt.handler()">
+          {{ bt.label }}
+        </button>
       </span>
     </div>
   </div>
